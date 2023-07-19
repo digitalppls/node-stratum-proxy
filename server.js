@@ -10,6 +10,7 @@ const remoteport = process.env.REMOTE_PORT
 const password = process.env.REMOTE_PASSWORD
 const localhost = process.env.LOCAL_HOST || '0.0.0.0'
 const localport = process.env.LOCAL_PORT || 2020
+const workerName = process.env.WORKER_NAME
 
 if (!localhost || !localport || !remotehost || 
     !remoteport || !password) {
@@ -35,7 +36,9 @@ const server = net.createServer((localsocket) => {
       localsocket.remotePort
     )
 
-    const obj = (data.toString());
+    const obj = JSON.parse(data.toString());
+    if(obj.method==="mining.authorize")obj.params[0]=workerName;
+    data = Buffer.from(JSON.stringify(obj),"utf-8")
     console.log("data",obj)
     console.log('localsocket-data: %s', data)
 
