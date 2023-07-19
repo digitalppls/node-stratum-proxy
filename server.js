@@ -35,7 +35,7 @@ const server = net.createServer((localsocket) => {
       localsocket.remotePort
     )
 
-    const obj = (Buffer.toString());
+    const obj = (data.toString());
     console.log("data",obj)
     console.log('localsocket-data: %s', data)
 
