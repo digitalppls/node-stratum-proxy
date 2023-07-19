@@ -1,0 +1,14 @@
+{
+  "name": "node-stratum-proxy",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "OneEvil",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^4.0.0"
+  }
+}
