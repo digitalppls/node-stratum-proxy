@@ -34,6 +34,8 @@ const server = net.createServer((localsocket) => {
       localsocket.remoteAddress,
       localsocket.remotePort
     )
+
+    console.log("data",data)
     console.log('localsocket-data: %s', data)
 
     const flushed = remotesocket.write(data)
